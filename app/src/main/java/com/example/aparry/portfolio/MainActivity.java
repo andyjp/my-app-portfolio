@@ -9,6 +9,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
 // ActionBarActivity
 public class MainActivity extends AppCompatActivity {
 
@@ -16,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ButterKnife.inject(this);
     }
 
     @Override
@@ -40,7 +44,17 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void showAppToast(View view) {
+    @OnClick({R.id.spotify_button,
+            R.id.build_it_bigger_button,
+            R.id.scores_button,
+            R.id.library_button,
+            R.id.xyz_button,
+            R.id.capstone_button
+        })
+    public void showAppToast(Button button) {
+        Toast.makeText(this, String.format(getString(R.string.toast_message), button.getText()), Toast.LENGTH_SHORT).show();
+    }
+   /* public void showAppToast(View view) {
         // Get the text of the button
         Button b = (Button) view;
         String appDescription = b.getText().toString();
@@ -68,5 +82,5 @@ public class MainActivity extends AppCompatActivity {
 
         Toast toast = Toast.makeText(context, "This button will launch my " + appDescription + " app!", duration);
         toast.show();
-    }
+    }*/
 }

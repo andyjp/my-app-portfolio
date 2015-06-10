@@ -1,5 +1,9 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="fill_parent"
+    android:layout_width="fill_parent">
+
+    <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_centerHorizontal="true"
@@ -11,9 +15,9 @@
         android:layout_height="wrap_content"
         android:text="@string/title_activity_main"
         android:id="@+id/textView"
-        android:textSize="25sp"
-        android:paddingTop="10dp"
-        android:paddingBottom="20dp" />
+        android:textSize="@dimen/header_text_size"
+        android:paddingTop="@dimen/header_pad_top"
+        android:paddingBottom="@dimen/header_pad_bottom" />
     <Button
         android:id="@+id/spotify_button"
         android:text="@string/spotify"
@@ -41,3 +45,4 @@
         style="@style/Buttons" />
 
 </LinearLayout>
+</ScrollView>
